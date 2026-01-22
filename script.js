@@ -143,3 +143,209 @@ ScrollTrigger.create({
     }
   }
 });
+
+/*************************************************
+ * FAQ ACCORDION
+ *************************************************/
+const faqHeader = document.querySelector('.faq-header');
+const faqItems = document.querySelectorAll('.faq-item');
+
+// Animate FAQ header on scroll
+if (faqHeader) {
+  gsap.from(faqHeader, {
+    scrollTrigger: {
+      trigger: faqHeader,
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    ease: "power2.out"
+  });
+}
+
+// Animate FAQ items on scroll
+faqItems.forEach((item, index) => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: "top 85%",
+      end: "top 60%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 30,
+    duration: 0.6,
+    delay: index * 0.1,
+    ease: "power2.out"
+  });
+});
+
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+  const icon = item.querySelector('.faq-icon');
+
+  // Set initial state
+  gsap.set(answer, { height: 0, opacity: 0 });
+
+  // Smooth hover effect
+  item.addEventListener('mouseenter', () => {
+    gsap.to(item, {
+      scale: 1.01,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+
+  item.addEventListener('mouseleave', () => {
+    gsap.to(item, {
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+
+  question.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
+
+    // Close all other items with smooth animation
+    faqItems.forEach(otherItem => {
+      if (otherItem !== item && otherItem.classList.contains('active')) {
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        const otherIcon = otherItem.querySelector('.faq-icon');
+
+        gsap.to(otherAnswer, {
+          height: 0,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power2.inOut"
+        });
+
+        gsap.to(otherIcon, {
+          rotation: 0,
+          duration: 0.3,
+          ease: "power2.inOut"
+        });
+
+        otherItem.classList.remove('active');
+      }
+    });
+
+    // Toggle current item
+    if (!isActive) {
+      item.classList.add('active');
+
+      gsap.to(answer, {
+        height: "auto",
+        opacity: 1,
+        duration: 0.5,
+        ease: "power3.out"
+      });
+
+      // Animate the paragraph inside
+      gsap.from(answer.querySelector('p'), {
+        y: -10,
+        opacity: 0,
+        duration: 0.4,
+        delay: 0.1,
+        ease: "power2.out"
+      });
+
+      gsap.to(icon, {
+        rotation: 45,
+        duration: 0.3,
+        ease: "back.out(1.2)"
+      });
+    } else {
+      item.classList.remove('active');
+
+      gsap.to(answer, {
+        height: 0,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.inOut"
+      });
+
+      gsap.to(icon, {
+        rotation: 0,
+        duration: 0.3,
+        ease: "power2.inOut"
+      });
+    }
+  });
+});
+
+/*************************************************
+ * FOOTER ANIMATIONS
+ *************************************************/
+const footerBrand = document.querySelector('.footer-brand');
+const footerColumns = document.querySelectorAll('.footer-column');
+const footerBottom = document.querySelector('.footer-bottom');
+
+// Animate footer brand
+if (footerBrand) {
+  gsap.from(footerBrand, {
+    scrollTrigger: {
+      trigger: footerBrand,
+      start: "top 85%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    x: -50,
+    duration: 0.8,
+    ease: "power2.out"
+  });
+}
+
+// Animate footer columns
+footerColumns.forEach((column, index) => {
+  gsap.from(column, {
+    scrollTrigger: {
+      trigger: column,
+      start: "top 85%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 30,
+    duration: 0.6,
+    delay: index * 0.1,
+    ease: "power2.out"
+  });
+});
+
+// Animate footer bottom
+if (footerBottom) {
+  gsap.from(footerBottom, {
+    scrollTrigger: {
+      trigger: footerBottom,
+      start: "top 90%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 20,
+    duration: 0.6,
+    ease: "power2.out"
+  });
+}
+
+// Animate social icons on hover
+const socialIcons = document.querySelectorAll('.footer-social a');
+socialIcons.forEach(icon => {
+  icon.addEventListener('mouseenter', () => {
+    gsap.to(icon, {
+      scale: 1.1,
+      duration: 0.3,
+      ease: "back.out(1.5)"
+    });
+  });
+
+  icon.addEventListener('mouseleave', () => {
+    gsap.to(icon, {
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+});
