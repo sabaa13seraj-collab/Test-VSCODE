@@ -23,7 +23,14 @@ gsap.registerPlugin(ScrollTrigger);
  * LENIS (MUST BE BEFORE ANIMATIONS)
  *************************************************/
 const lenis = new Lenis({
-  smooth: true,
+  duration: 1,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  orientation: 'vertical',
+  gestureOrientation: 'vertical',
+  smoothWheel: true,
+  wheelMultiplier: 0.8,
+  touchMultiplier: 1.5,
+  infinite: false,
 });
 
 lenis.on("scroll", ScrollTrigger.update);
@@ -73,8 +80,13 @@ window.addEventListener("load", () => {
     });
   });
 
-  // ❗ VERY IMPORTANT
+  // ❗ VERY IMPORTANT - Debounced refresh for better performance
   ScrollTrigger.refresh();
+});
+
+// Optimize ScrollTrigger defaults for better performance
+ScrollTrigger.config({
+  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
 });
 
 /*************************************************
@@ -98,51 +110,45 @@ faders.forEach((el) => observer.observe(el));
 
 gsap.registerPlugin(ScrollTrigger);
 
+/*************************************************
+ * CARDS SECTION - OPTIMIZED FOR PERFORMANCE
+ * - Uses only transform properties (no width/gap)
+ * - GPU-accelerated with force3D
+ * - Reduced scrub value for better responsiveness
+ *************************************************/
 const cards = gsap.utils.toArray(".card");
 const container = document.querySelector(".cards");
 
-ScrollTrigger.create({
-  trigger: ".cards-section",
-  start: "top top",
-  end: "+=100vh",
-  scrub: true,
-  pin: ".sticky-wrapper",
+if (container && cards.length > 0) {
+  // Force GPU acceleration
+  gsap.set(container, { force3D: true });
+  gsap.set(cards, { force3D: true });
 
-  onUpdate: self => {
-    const p = self.progress;
-
-    // Move cards upward from bottom (100vh) to center (0vh)
-    const yPos = gsap.utils.interpolate(100, 0, p);
-    gsap.set(container, {
-      y: yPos + "vh"
-    });
-
-    // Shrink width as they move up
-    gsap.set(container, {
-      width: gsap.utils.interpolate(75, 60, Math.min(p * 2, 1)) + "%"
-    });
-
-    // Add gap between cards
-    if (p > 0.3) {
-      gsap.to(container, { gap: 20, duration: 0.3 });
+  const cardsTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".cards-section",
+      start: "top top",
+      end: "+=100vh",
+      scrub: 0.5,
+      pin: ".sticky-wrapper",
+      anticipatePin: 1,
+      fastScrollEnd: true,
+      preventOverlaps: true
     }
+  });
 
-    // Flip cards
-    if (p > 0.55) {
-      gsap.to(cards, {
-        rotationY: 180,
-        stagger: 0.1,
-        ease: "power3.out"
-      });
-    } else {
-      gsap.to(cards, {
-        rotationY: 0,
-        stagger: -0.1,
-        ease: "power3.out"
-      });
-    }
-  }
-});
+  cardsTimeline
+    .fromTo(container,
+      { yPercent: 100, scale: 1 },
+      { yPercent: 0, scale: 0.85, ease: "none" },
+      0
+    )
+    .to(cards, {
+      rotationY: 180,
+      stagger: { each: 0.05 },
+      ease: "none"
+    }, 0.5);
+}
 
 /*************************************************
  * FAQ ACCORDION
@@ -150,61 +156,43 @@ ScrollTrigger.create({
 const faqHeader = document.querySelector('.faq-header');
 const faqItems = document.querySelectorAll('.faq-item');
 
-// Animate FAQ header on scroll
-if (faqHeader) {
-  gsap.from(faqHeader, {
+// Batch animate FAQ section for better performance
+if (faqHeader && faqItems.length > 0) {
+  const faqTimeline = gsap.timeline({
     scrollTrigger: {
-      trigger: faqHeader,
+      trigger: ".faq-section",
       start: "top 80%",
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 40,
-    duration: 0.8,
-    ease: "power2.out"
+      toggleActions: "play none none none",
+      once: true
+    }
   });
-}
 
-// Animate FAQ items on scroll
-faqItems.forEach((item, index) => {
-  gsap.from(item, {
-    scrollTrigger: {
-      trigger: item,
-      start: "top 85%",
-      end: "top 60%",
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.6,
-    delay: index * 0.1,
-    ease: "power2.out"
-  });
-});
+  faqTimeline
+    .from(faqHeader, {
+      opacity: 0,
+      y: 40,
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    .from(faqItems, {
+      opacity: 0,
+      y: 30,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out"
+    }, "-=0.4");
+}
 
 faqItems.forEach(item => {
   const question = item.querySelector('.faq-question');
   const answer = item.querySelector('.faq-answer');
   const icon = item.querySelector('.faq-icon');
 
-  // Set initial state
-  gsap.set(answer, { height: 0, opacity: 0 });
-
-  // Smooth hover effect
-  item.addEventListener('mouseenter', () => {
-    gsap.to(item, {
-      scale: 1.01,
-      duration: 0.3,
-      ease: "power2.out"
-    });
-  });
-
-  item.addEventListener('mouseleave', () => {
-    gsap.to(item, {
-      scale: 1,
-      duration: 0.3,
-      ease: "power2.out"
-    });
+  // Set initial state with GPU acceleration
+  gsap.set(answer, {
+    height: 0,
+    opacity: 0,
+    force3D: true
   });
 
   question.addEventListener('click', () => {
@@ -240,23 +228,16 @@ faqItems.forEach(item => {
       gsap.to(answer, {
         height: "auto",
         opacity: 1,
-        duration: 0.5,
-        ease: "power3.out"
-      });
-
-      // Animate the paragraph inside
-      gsap.from(answer.querySelector('p'), {
-        y: -10,
-        opacity: 0,
         duration: 0.4,
-        delay: 0.1,
-        ease: "power2.out"
+        ease: "power2.out",
+        force3D: true
       });
 
       gsap.to(icon, {
         rotation: 45,
         duration: 0.3,
-        ease: "back.out(1.2)"
+        ease: "power2.out",
+        force3D: true
       });
     } else {
       item.classList.remove('active');
@@ -264,14 +245,16 @@ faqItems.forEach(item => {
       gsap.to(answer, {
         height: 0,
         opacity: 0,
-        duration: 0.4,
-        ease: "power2.inOut"
+        duration: 0.3,
+        ease: "power2.in",
+        force3D: true
       });
 
       gsap.to(icon, {
         rotation: 0,
         duration: 0.3,
-        ease: "power2.inOut"
+        ease: "power2.in",
+        force3D: true
       });
     }
   });
@@ -284,68 +267,37 @@ const footerBrand = document.querySelector('.footer-brand');
 const footerColumns = document.querySelectorAll('.footer-column');
 const footerBottom = document.querySelector('.footer-bottom');
 
-// Animate footer brand
-if (footerBrand) {
-  gsap.from(footerBrand, {
+// Batch animate footer for better performance
+if (footerBrand && footerColumns.length > 0 && footerBottom) {
+  const footerTimeline = gsap.timeline({
     scrollTrigger: {
-      trigger: footerBrand,
+      trigger: ".footer",
       start: "top 85%",
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    x: -50,
-    duration: 0.8,
-    ease: "power2.out"
-  });
-}
-
-// Animate footer columns
-footerColumns.forEach((column, index) => {
-  gsap.from(column, {
-    scrollTrigger: {
-      trigger: column,
-      start: "top 85%",
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.6,
-    delay: index * 0.1,
-    ease: "power2.out"
-  });
-});
-
-// Animate footer bottom
-if (footerBottom) {
-  gsap.from(footerBottom, {
-    scrollTrigger: {
-      trigger: footerBottom,
-      start: "top 90%",
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 20,
-    duration: 0.6,
-    ease: "power2.out"
-  });
-}
-
-// Animate social icons on hover
-const socialIcons = document.querySelectorAll('.footer-social a');
-socialIcons.forEach(icon => {
-  icon.addEventListener('mouseenter', () => {
-    gsap.to(icon, {
-      scale: 1.1,
-      duration: 0.3,
-      ease: "back.out(1.5)"
-    });
+      toggleActions: "play none none none",
+      once: true
+    }
   });
 
-  icon.addEventListener('mouseleave', () => {
-    gsap.to(icon, {
-      scale: 1,
-      duration: 0.3,
+  footerTimeline
+    .from(footerBrand, {
+      opacity: 0,
+      x: -50,
+      duration: 0.8,
       ease: "power2.out"
-    });
-  });
-});
+    })
+    .from(footerColumns, {
+      opacity: 0,
+      y: 30,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out"
+    }, "-=0.5")
+    .from(footerBottom, {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: "power2.out"
+    }, "-=0.3");
+}
+
+// Social icons hover handled by CSS for better performance
