@@ -104,14 +104,15 @@ const container = document.querySelector(".cards");
 ScrollTrigger.create({
   trigger: ".cards-section",
   start: "top top",
-  end: "bottom bottom",
+  end: "+=100vh",
   scrub: true,
+  pin: ".sticky-wrapper",
 
   onUpdate: self => {
     const p = self.progress;
 
-    // Move cards upward from bottom (100vh) to above center
-    const yPos = gsap.utils.interpolate(100, -20, p);
+    // Move cards upward from bottom (100vh) to center (0vh)
+    const yPos = gsap.utils.interpolate(100, 0, p);
     gsap.set(container, {
       y: yPos + "vh"
     });
