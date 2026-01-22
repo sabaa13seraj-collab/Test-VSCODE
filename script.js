@@ -96,126 +96,49 @@ const observer = new IntersectionObserver(
 
 faders.forEach((el) => observer.observe(el));
 
-/*************************************************
- * STICKY / PIN SECTION (FINAL FIXED)
- *************************************************/
+gsap.registerPlugin(ScrollTrigger);
 
-// REQUIRED ELEMENTS
-const stickyHeader = document.querySelector(".sticky-header");
-const cardContainer = document.querySelector(".card-container");
+const cards = gsap.utils.toArray(".card");
+const container = document.querySelector(".cards");
 
-let isGapAnimationCompleted = false;
-let isFlipAnimationCompleted = false;
+ScrollTrigger.create({
+  trigger: ".cards-section",
+  start: "top top",
+  end: "bottom bottom",
+  scrub: true,
 
-function initSticky() {
-  // Kill old triggers
-  ScrollTrigger.getAll().forEach((t) => t.kill());
+  onUpdate: self => {
+    const p = self.progress;
 
-  const mm = gsap.matchMedia();
-
-  mm.add("(min-width: 370px)", () => {
-    ScrollTrigger.create({
-      trigger: ".sticky",
-      scroller: document.body,
-      start: "top top",
-      end: () => "+=" + window.innerHeight * 2,
-      pin: true,
-      scrub: true,
-      pinSpacing: true,
-
-      onUpdate(self) {
-        const progress = self.progress;
-
-        /* ================= HEADER REVEAL ================= */
-        if (progress >= 0.1 && progress <= 0.25) {
-          const headerProgress = gsap.utils.mapRange(0.1, 0.25, 0, 1, progress);
-
-          gsap.set(stickyHeader, {
-            y: gsap.utils.mapRange(0, 1, 40, 0, headerProgress),
-            opacity: gsap.utils.mapRange(0, 1, 0, 1, headerProgress),
-          });
-        } else if (progress < 0.1) {
-          gsap.set(stickyHeader, { y: 40, opacity: 0 });
-        } else {
-          gsap.set(stickyHeader, { y: 0, opacity: 1 });
-        }
-
-        /* ================= CONTAINER WIDTH ================= */
-        if (progress <= 0.25) {
-          const width = gsap.utils.mapRange(0, 0.25, 75, 60, progress);
-          gsap.set(cardContainer, { width: `${width}%` });
-        } else {
-          gsap.set(cardContainer, { width: "80%" });
-        }
-
-        /* ================= GAP + RADIUS ================= */
-        if (progress >= 0.35 && !isGapAnimationCompleted) {
-          gsap.to(cardContainer, {
-            gap: "20px",
-            duration: 0.5,
-            ease: "power3.out",
-          });
-
-          gsap.to(["#card-1", "#card-2", "#card-3"], {
-            borderRadius: "20px",
-            duration: 0.5,
-            ease: "power3.out",
-          });
-
-          isGapAnimationCompleted = true;
-        }
-
-        /* ================= FLIP CARDS ================= */
-        if (progress >= 0.7 && !isFlipAnimationCompleted) {
-          gsap.to(".card", {
-            rotationY: 180,
-            duration: 0.75,
-            ease: "power3.inOut",
-            stagger: 0.1,
-          });
-
-          gsap.to(["#card-1", "#card-3"], {
-            y: 30,
-            rotationZ: (i) => [-15, 15][i],
-            duration: 0.75,
-            ease: "power3.inOut",
-          });
-
-          isFlipAnimationCompleted = true;
-        }
-
-        /* ================= RESET FLIP ================= */
-        if (progress < 0.7 && isFlipAnimationCompleted) {
-          gsap.to(".card", {
-            rotationY: 0,
-            duration: 0.75,
-            ease: "power3.inOut",
-            stagger: -0.1,
-          });
-
-          gsap.to(["#card-1", "#card-3"], {
-            y: 0,
-            rotationZ: 0,
-            duration: 0.75,
-            ease: "power3.inOut",
-          });
-
-          isFlipAnimationCompleted = false;
-        }
-      },
+    // Move cards upward from bottom (100vh) to above center
+    const yPos = gsap.utils.interpolate(100, -20, p);
+    gsap.set(container, {
+      y: yPos + "vh"
     });
-  });
-}
 
-initSticky();
+    // Shrink width as they move up
+    gsap.set(container, {
+      width: gsap.utils.interpolate(75, 60, Math.min(p * 2, 1)) + "%"
+    });
 
-/*************************************************
- * RESIZE HANDLING
- *************************************************/
-let resizeTimer;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 300);
+    // Add gap between cards
+    if (p > 0.3) {
+      gsap.to(container, { gap: 20, duration: 0.3 });
+    }
+
+    // Flip cards
+    if (p > 0.55) {
+      gsap.to(cards, {
+        rotationY: 180,
+        stagger: 0.1,
+        ease: "power3.out"
+      });
+    } else {
+      gsap.to(cards, {
+        rotationY: 0,
+        stagger: -0.1,
+        ease: "power3.out"
+      });
+    }
+  }
 });
