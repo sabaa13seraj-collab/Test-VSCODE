@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Details - AL SERRAJ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="service-detail.css" />
+    <!-- Fontawesome library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="header">
+      <div class="logo">AL SERAJ</div>
+      <div class="humburger">
+        <i class="fa-solid fa-bars active"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#solutions">Solutions</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Service Detail Page -->
+    <div class="service-detail-page">
+      <a href="index.html" class="back-button">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Home</span>
+      </a>
+
+      <div class="detail-container">
+        <div class="detail-left">
+          <div class="service-image" id="serviceImage"></div>
+        </div>
+
+        <div class="detail-right">
+          <h1 class="service-title" id="serviceTitle"></h1>
+          <p class="service-description" id="serviceDescription"></p>
+
+          <div class="service-specs">
+            <div class="spec-item">
+              <h3>Features</h3>
+              <ul class="feature-list" id="featureList"></ul>
+            </div>
+
+            <div class="spec-item">
+              <h3>Specifications</h3>
+              <div class="specs-grid" id="specsGrid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GSAP library -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./service-detail.js"></script>
+  </body>
+</html>

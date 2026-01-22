@@ -301,3 +301,16 @@ if (footerBrand && footerColumns.length > 0 && footerBottom) {
 }
 
 // Social icons hover handled by CSS for better performance
+
+/*************************************************
+ * SERVICE DETAIL PAGE NAVIGATION
+ *************************************************/
+const clickableSections = document.querySelectorAll('.clickable-section');
+
+// Add click event listeners to all clickable sections
+clickableSections.forEach(section => {
+  section.addEventListener('click', () => {
+    const serviceType = section.getAttribute('data-service');
+    window.location.href = `service-detail.html?service=${serviceType}`;
+  });
+});
