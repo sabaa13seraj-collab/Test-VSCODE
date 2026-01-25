@@ -17,20 +17,29 @@
   <body>
     <!-- Navbar -->
     <header class="header">
-      <div class="logo">AL SERAJ</div>
-      <div class="humburger">
-        <i class="fa-solid fa-bars active"></i>
-        <i class="fa-solid fa-xmark"></i>
+      <div class="logo">
+        <span class="logo-text">AL SERAJ</span>
+        <span class="logo-dot"></span>
       </div>
       <nav class="navbar">
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">Services</a></li>
-          <li><a href="#">Solutions</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>
+      <div class="header-right">
+        <a href="#" class="store-btn">
+          <span class="store-btn-text">Online Store</span>
+          <span class="store-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </header>
     <!-- Hero section -->
     <section class="main-page">
@@ -85,16 +94,85 @@
       </div>
 
       <div class="it-section clickable-section" data-service="it">
-        <h1 class="section-heading">Information Technology</h1>
-
+       
+        <div class="it-right">
+          <div class="cont-abs">
+            <div class="right-head"><h1>Information</h1></div>
+            <div class="left-head"><h1>Technology</h1></div>
+          </div>
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.39/build/spline-viewer.js"></script>
+          <spline-viewer url="https://prod.spline.design/oyoy87FLGlubreAh/scene.splinecode"></spline-viewer>
+        </div>
       </div>
-
+          
       <div class="cybersecurity-section clickable-section" data-service="cybersecurity">
         <h1 class="section-heading">Cyber security</h1>
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.39/build/spline-viewer.js"></script>
-<spline-viewer class="spline2" url="https://prod.spline.design/Ue8qYL8r2bc4DJUk/scene.splinecode"></spline-viewer>
+          <model-viewer class="cycle-3d" src="3d-model/d.glb" autoplay>
+        
       </div>
     
+      <!-- Services Section -->
+      <section class="services-section">
+        <div class="services-container">
+          <div class="services-header">
+            <div class="circle-container">
+              <div class="circle"></div>
+              <h1 class="h11">Our Services</h1>
+            </div>
+          </div>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="card-icon">
+                <img src="https://img.icons8.com/ios/50/e93d59/security-checked.png" alt="Security">
+              </div>
+              <h3>Security Solutions</h3>
+              <p>Advanced security systems and monitoring solutions to protect your assets and ensure complete safety.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="card-icon">
+                <img src="https://img.icons8.com/ios/50/e93d59/cloud.png" alt="Cloud">
+              </div>
+              <h3>Cloud Services</h3>
+              <p>Scalable cloud infrastructure and management services for seamless digital operations.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="card-icon">
+                <img src="https://img.icons8.com/ios/50/e93d59/code.png" alt="Development">
+              </div>
+              <h3>Software Development</h3>
+              <p>Custom software solutions tailored to your business needs with cutting-edge technologies.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="card-icon">
+                <img src="https://img.icons8.com/ios/50/e93d59/network.png" alt="Network">
+              </div>
+              <h3>Network Infrastructure</h3>
+              <p>Robust network design and implementation for reliable connectivity and performance.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="card-icon">
+                <img src="https://img.icons8.com/ios/50/e93d59/artificial-intelligence.png" alt="AI">
+              </div>
+              <h3>AI & Automation</h3>
+              <p>Intelligent automation solutions powered by artificial intelligence for enhanced efficiency.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="card-icon">
+                <img src="https://img.icons8.com/ios/50/e93d59/technical-support.png" alt="Support">
+              </div>
+              <h3>Technical Support</h3>
+              <p>24/7 dedicated technical support and maintenance services for uninterrupted operations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="faq-section">
         <div class="faq-container">
           <div class="faq-header">

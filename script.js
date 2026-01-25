@@ -2,15 +2,52 @@
  * NAVBAR TOGGLE
  *************************************************/
 const navbar = document.querySelector(".navbar");
-const bars = document.querySelector(".fa-bars");
-const xmark = document.querySelector(".fa-xmark");
-const humburgerMenu = document.querySelector(".humburger");
+const hamburger = document.querySelector(".hamburger");
 
-if (humburgerMenu) {
-  humburgerMenu.addEventListener("click", () => {
-    bars.classList.toggle("active");
-    xmark.classList.toggle("active");
+if (hamburger) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
     navbar.classList.toggle("active");
+    document.body.style.overflow = navbar.classList.contains("active") ? "hidden" : "";
+  });
+
+  // Close menu when clicking a nav link (but not dropdown parent)
+  const navLinks = document.querySelectorAll(".navbar ul li:not(.has-dropdown) a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navbar.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
+}
+
+/*************************************************
+ * MOBILE DROPDOWN TOGGLE
+ *************************************************/
+const hasDropdown = document.querySelector(".has-dropdown");
+const dropdownToggle = hasDropdown?.querySelector(":scope > a");
+
+if (dropdownToggle) {
+  dropdownToggle.addEventListener("click", (e) => {
+    // Only toggle on mobile (when hamburger is visible)
+    if (window.innerWidth <= 900) {
+      e.preventDefault();
+      hasDropdown.classList.toggle("active");
+    }
+  });
+
+  // Close dropdown when clicking a dropdown link on mobile
+  const dropdownLinks = document.querySelectorAll(".dropdown a");
+  dropdownLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 900) {
+        hasDropdown.classList.remove("active");
+        hamburger?.classList.remove("active");
+        navbar?.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
   });
 }
 
