@@ -1,0 +1,467 @@
+/* PROJECT PAGE STYLES */
+
+/* Back Button */
+.back-button {
+  position: fixed;
+  top: 100px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(233, 61, 89, 0.4);
+  border-radius: 30px;
+  color: #e93d59;
+  text-decoration: none;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: 300;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.back-button:hover {
+  background: rgba(233, 61, 89, 0.2);
+  border-color: #e93d59;
+  transform: translateX(-5px);
+}
+
+.back-button i {
+  font-size: 1.2rem;
+}
+
+/* Hero Section */
+.project-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.project-3d-container {
+  position: absolute;
+  width: auto;
+  height: 100vh;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+}
+
+.project-3d-container spline-viewer {
+  width: 50vw;
+  height: 100vh;
+}
+
+.project-hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 60px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.project-hero-title {
+  font-size: clamp(1.8rem, 6vw, 4rem);
+  font-weight: 100;
+  color: #fff;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* IT Page Overlay Text */
+.it-overlay-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.it-overlay-text h1 {
+  font-size: clamp(1.8rem, 8vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.it-text-left {
+  margin-right: 200px;
+}
+
+.it-text-right {
+  margin-left: 200px;
+}
+
+/* Cybersecurity Hero */
+.cybersecurity-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+}
+
+.cyber-title {
+  position: relative;
+  padding-left: 5%;
+  font-size: clamp(2rem, 10vw, 8rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #fff;
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+  width: 45%;
+  flex-shrink: 0;
+}
+
+.cyber-spline {
+  width: 55%;
+  height: 100%;
+  background-color: red;
+}
+
+.cyber-3d-model {
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
+}
+
+/* Project Details Section */
+.project-details {
+  width: 100%;
+  background: #000;
+  padding: 100px 5%;
+}
+
+.project-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.project-description {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+/* Features Section */
+.project-features {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-features h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 100;
+  color: #fff;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.feature-item {
+  background: rgba(161, 24, 24, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(233, 61, 89, 0.2);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.feature-item:hover {
+  border-color: rgba(233, 61, 89, 0.5);
+  background: rgba(161, 24, 24, 0.2);
+  transform: translateY(-10px);
+}
+
+.feature-item i {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #e93d59;
+  margin-bottom: 20px;
+}
+
+.feature-item h3 {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* Specs Section */
+.project-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-specs h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 100;
+  color: #fff;
+  text-align: center;
+}
+
+.project-specs .specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.spec-card {
+  background: rgba(233, 61, 89, 0.1);
+  border: 1px solid rgba(233, 61, 89, 0.3);
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.spec-card:hover {
+  background: rgba(233, 61, 89, 0.2);
+  border-color: #e93d59;
+  transform: scale(1.05);
+}
+
+.spec-label {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  font-weight: 400;
+  color: #e93d59;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.spec-value {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 300;
+  color: #fff;
+}
+
+/* Responsive */
+
+/* Hero Section Stacked Layout at 1250px */
+@media (max-width: 1250px) {
+  .project-hero {
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: start;
+  }
+.project-3d-container spline-viewer {
+  width: auto;
+  height: 100vh;
+}
+  .project-3d-container {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    order: 2;
+  }
+
+  .project-hero-overlay {
+    position: relative;
+    order: 1;
+    padding: 120px 5% 40px;
+    background: #000;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-hero-title {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Cybersecurity Hero Stacked */
+  .cybersecurity-hero {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    padding: 100px 0 40px;
+  }
+
+  .cyber-title {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    padding-left: 0;
+    max-width: 100%;
+    text-align: center;
+    order: 1;
+    font-size: clamp(2.5rem, 12vw, 6rem);
+    margin-bottom: 30px;
+  }
+
+  .cyber-spline {
+    order: 2;
+    width: 100%;
+    height: 55vh;
+    min-height: 350px;
+  }
+
+  /* IT Page Overlay Text Stacked */
+  .it-overlay-text {
+    position: relative;
+    height: auto;
+    padding: 120px 5% 40px;
+    order: 1;
+    background: #000;
+  }
+}
+
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-specs .specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .it-text-left {
+    margin-right: 100px;
+  }
+
+  .it-text-right {
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 760px) {
+  .back-button {
+    position: relative;
+    top: 80px;
+    left: 20px;
+    margin-bottom: 20px;
+    width: fit-content;
+    padding: 12px 20px;
+  }
+
+  .project-hero {
+    height: 70vh;
+  }
+
+  .project-hero-overlay {
+    padding: 20px;
+  }
+
+  .cybersecurity-hero {
+    padding: 80px 0 30px;
+  }
+
+  .cyber-title {
+    font-size: clamp(2rem, 12vw, 4rem);
+    margin-bottom: 20px;
+  }
+
+  .cyber-spline {
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  .project-details {
+    padding: 60px 3%;
+  }
+
+  .project-details-container {
+    gap: 50px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-specs .specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+    padding: 30px 20px;
+  }
+
+  .spec-card {
+    padding: 20px 15px;
+  }
+
+  .it-overlay-text {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .it-text-left,
+  .it-text-right {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-button {
+    padding: 10px 16px;
+    left: 15px;
+  }
+
+  .project-hero-overlay {
+    padding: 15px;
+  }
+
+  .cybersecurity-hero {
+    padding: 60px 0;
+  }
+
+  .cyber-title {
+    font-size: clamp(1.5rem, 10vw, 3rem);
+    margin-bottom: 10px;
+  }
+
+  .cyber-spline {
+    height: 50vh;
+    min-height: 220px;
+    scale: 0.6;
+  }
+}

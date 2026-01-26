@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AL SERRAJ</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>AL SERAJ</title>
     <link rel="stylesheet" href="style.css" />
     <!-- Fontawesome library -->
     <link
@@ -16,34 +19,50 @@
   </head>
   <body>
     <!-- Navbar -->
-    <header class="header">
-      <div class="logo">
-        <span class="logo-text">AL SERAJ</span>
-        <span class="logo-dot"></span>
-      </div>
-      <nav class="navbar">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="header-right">
-        <a href="#" class="store-btn">
-          <span class="store-btn-text">Online Store</span>
-          <span class="store-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+    <nav class="navbar">
+        <!-- Logo -->
+        <a href="#" class="logo">
+           <img src="Images/logo.png" alt="Al Seraj Company Logo" class="logo-text">
         </a>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </header>
+
+        <!-- Navigation Links (Centered) -->
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+           <li><a href="#">Services</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <!-- Connect Button (Desktop) -->
+        <button class="connect-btn desktop">
+            Online Store
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu - Apple Style -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <div class="menu-divider"></div>
+        <button class="connect-btn">
+            Online Store
+        </button>
+    </div>
     <!-- Hero section -->
     <section class="main-page">
       <div class="hero-section">
+        <div class="hero-text-container"> 
+            <h1 class="hero-text"> Technology.Security.Reliability </h1>
+            <p class="hero-p">Delivering Technology and Security with Reliable Performance</p>
+        </div>
         <script
           type="module"
           src="https://unpkg.com/@splinetool/viewer@1.12.36/build/spline-viewer.js"
@@ -64,52 +83,93 @@
           </h1>
         </div>
       </div>
-      <div class="fade-section"><h1 class="fade">What we provide?</h1></div>
-      <div class="drone-section clickable-section" data-service="drone">
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer@1.12.36/build/spline-viewer.js"
-        ></script>
-        <spline-viewer
-          url="https://prod.spline.design/YSgtYt9jwLVmaMdK/scene.splinecode"
-        ></spline-viewer>
-      </div>
-      <div class="camera-section clickable-section" data-service="camera">
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer@1.12.36/build/spline-viewer.js"
-        ></script>
-        <spline-viewer
-          url="https://prod.spline.design/aSa635o165tD7Scs/scene.splinecode"
-        ></spline-viewer>
-      </div>
-      <div class="mobile-robot-section clickable-section" data-service="mobile-robotics">
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer@1.12.36/build/spline-viewer.js"
-        ></script>
-        <spline-viewer
-          url="https://prod.spline.design/JPNBDnFJPoro5ifZ/scene.splinecode"
-        ></spline-viewer>
-      </div>
-
-      <div class="it-section clickable-section" data-service="it">
-       
-        <div class="it-right">
-          <div class="cont-abs">
-            <div class="right-head"><h1>Information</h1></div>
-            <div class="left-head"><h1>Technology</h1></div>
+      <!-- Products Section -->
+      <section class="projects-section">
+        <div class="projects-container">
+          <div class="projects-header">
+            <div class="circle-container">
+              <div class="circle"></div>
+              <h1 class="h11">Our Products</h1>
+            </div>
+            <h2 class="projects-title">What we provide?</h2>
           </div>
-          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.39/build/spline-viewer.js"></script>
-          <spline-viewer url="https://prod.spline.design/oyoy87FLGlubreAh/scene.splinecode"></spline-viewer>
+
+          <div class="projects-grid">
+            <a href="drone.html" class="project-card">
+              <div class="project-card-image">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="28" height="28">
+                  <rect x="5" y="8" width="35" height="10" rx="5" fill="#f5a5b5"/>
+                  <rect x="60" y="8" width="35" height="10" rx="5" fill="#f5a5b5"/>
+                  <rect x="22" y="13" width="6" height="15" fill="#e93d59"/>
+                  <rect x="72" y="13" width="6" height="15" fill="#e93d59"/>
+                  <path d="M20 28 L20 45 L35 58 L50 62 L65 58 L80 45 L80 28 Z" fill="#e93d59"/>
+                  <path d="M32 58 Q22 68 15 78" stroke="#e93d59" stroke-width="6" fill="none" stroke-linecap="round"/>
+                  <path d="M68 58 Q78 68 85 78" stroke="#e93d59" stroke-width="6" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="project-card-content">
+                <h3>Drone</h3>
+                <p>Advanced aerial surveillance and monitoring systems</p>
+              </div>
+              <div class="project-card-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+
+            <a href="camera.html" class="project-card">
+              <div class="project-card-image">
+                <i class="fa-solid fa-video"></i>
+              </div>
+              <div class="project-card-content">
+                <h3>Cameras</h3>
+                <p>Professional-grade camera systems with AI analytics</p>
+              </div>
+              <div class="project-card-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+
+            <a href="it.html" class="project-card">
+              <div class="project-card-image">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <div class="project-card-content">
+                <h3>Information Technology</h3>
+                <p>Comprehensive IT infrastructure and software solutions</p>
+              </div>
+              <div class="project-card-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+
+            <a href="mobile-robotics.html" class="project-card">
+              <div class="project-card-image">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div class="project-card-content">
+                <h3>Mobile Robotics</h3>
+                <p>Autonomous mobile robots for security and inspection</p>
+              </div>
+              <div class="project-card-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+
+            <a href="cybersecurity.html" class="project-card">
+              <div class="project-card-image">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="project-card-content">
+                <h3>Cyber security</h3>
+                <p>Advanced security services protecting digital assets</p>
+              </div>
+              <div class="project-card-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-          
-      <div class="cybersecurity-section clickable-section" data-service="cybersecurity">
-        <h1 class="section-heading">Cyber security</h1>
-          <model-viewer class="cycle-3d" src="3d-model/d.glb" autoplay>
-        
-      </div>
+      </section>
     
       <!-- Services Section -->
       <section class="services-section">
@@ -252,7 +312,7 @@
         <div class="footer-container">
           <div class="footer-top">
             <div class="footer-brand">
-              <h2 class="footer-logo">AL SERAJ</h2>
+              <h2 ><img class="footer-logo" src="Images/logo.png" alt="Al Seraj Company Logo"></h2>
               <p class="footer-tagline">Powering digital transformation since 1996</p>
             </div>
 

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Drone Solutions - AL SERRAJ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="project-page.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+           <img src="Images/logo.png" alt="Al Seraj Company Logo" class="logo-text">
+        </a>
+
+        <!-- Navigation Links (Centered) -->
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
+
+        <!-- Connect Button (Desktop) -->
+        <button class="connect-btn desktop">
+            Online Store
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu - Apple Style -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <div class="menu-divider"></div>
+        <button class="connect-btn">
+            Online Store
+        </button>
+    </div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Back to Home</span>
+    </a>
+
+    <!-- Hero Section with 3D Model -->
+    <section class="project-hero">
+      <div class="project-3d-container">
+        <script
+          type="module"
+          src="https://unpkg.com/@splinetool/viewer@1.12.36/build/spline-viewer.js"
+        ></script>
+        <spline-viewer
+          url="https://prod.spline.design/YSgtYt9jwLVmaMdK/scene.splinecode"
+        ></spline-viewer>
+      </div>
+      <div class="project-hero-overlay">
+        <h1 class="project-hero-title">Drone Solutions</h1>
+      </div>
+    </section>
+
+    <!-- Service Details Section -->
+    <section class="project-details">
+      <div class="project-details-container">
+        <div class="project-info">
+          <div class="circle-container">
+            <div class="circle"></div>
+            <h1 class="h11">About This Service</h1>
+          </div>
+          <p class="project-description">
+            Advanced aerial surveillance and monitoring systems equipped with cutting-edge technology for security, reconnaissance, and data collection operations. Our drone solutions provide comprehensive aerial coverage for various industries including security, agriculture, construction, and infrastructure inspection.
+          </p>
+        </div>
+
+        <div class="project-features">
+          <h2>Key Features</h2>
+          <div class="features-grid">
+            <div class="feature-item">
+              <i class="fa-solid fa-camera"></i>
+              <h3>4K Ultra HD Camera</h3>
+              <p>Crystal clear video capture with professional-grade imaging</p>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-satellite-dish"></i>
+              <h3>Real-time Streaming</h3>
+              <p>Live video transmission with minimal latency</p>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <h3>GPS Navigation</h3>
+              <p>Precise waypoint planning and autonomous flight paths</p>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <h3>Obstacle Avoidance</h3>
+              <p>Advanced sensors for safe autonomous operation</p>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-battery-full"></i>
+              <h3>Long Flight Duration</h3>
+              <p>45+ minutes of continuous flight time</p>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-temperature-half"></i>
+              <h3>Thermal Imaging</h3>
+              <p>Infrared capability for night operations</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-specs">
+          <h2>Technical Specifications</h2>
+          <div class="specs-grid">
+            <div class="spec-card">
+              <span class="spec-label">Range</span>
+              <span class="spec-value">10 km</span>
+            </div>
+            <div class="spec-card">
+              <span class="spec-label">Max Speed</span>
+              <span class="spec-value">72 km/h</span>
+            </div>
+            <div class="spec-card">
+              <span class="spec-label">Weight</span>
+              <span class="spec-value">2.5 kg</span>
+            </div>
+            <div class="spec-card">
+              <span class="spec-label">Camera</span>
+              <span class="spec-value">4K 60fps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <h2 class="footer-logo">AL SERAJ</h2>
+            <p class="footer-tagline">Powering digital transformation since 1996</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>Services</h3>
+              <ul>
+                <li><a href="cybersecurity.html">Cybersecurity</a></li>
+                <li><a href="camera.html">Surveillance</a></li>
+                <li><a href="drone.html">Drones</a></li>
+                <li><a href="it.html">IT Solutions</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Company</h3>
+              <ul>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Connect</h3>
+              <div class="footer-social">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 AL SERAJ. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+      integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./project-page.js"></script>
+  </body>
+</html>

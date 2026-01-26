@@ -1,18 +1,44 @@
-/*************************************************
- * NAVBAR TOGGLE
- *************************************************/
-const navbar = document.querySelector(".navbar");
-const bars = document.querySelector(".fa-bars");
-const xmark = document.querySelector(".fa-xmark");
-const humburgerMenu = document.querySelector(".humburger");
+const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navbar = document.querySelector('.navbar');
 
-if (humburgerMenu) {
-  humburgerMenu.addEventListener("click", () => {
-    bars.classList.toggle("active");
-    xmark.classList.toggle("active");
-    navbar.classList.toggle("active");
-  });
-}
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.contains('active');
+
+            if (isActive) {
+                // Closing
+                mobileMenu.classList.remove('active');
+                menuBtn.classList.remove('active');
+                navbar.classList.remove('menu-active');
+                document.body.classList.remove('menu-open');
+            } else {
+                // Opening
+                mobileMenu.classList.add('active');
+                menuBtn.classList.add('active');
+                navbar.classList.add('menu-active');
+                document.body.classList.add('menu-open');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuBtn.classList.remove('active');
+                navbar.classList.remove('menu-active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+
 
 /*************************************************
  * GSAP + SCROLLTRIGGER
@@ -301,16 +327,3 @@ if (footerBrand && footerColumns.length > 0 && footerBottom) {
 }
 
 // Social icons hover handled by CSS for better performance
-
-/*************************************************
- * SERVICE DETAIL PAGE NAVIGATION
- *************************************************/
-const clickableSections = document.querySelectorAll('.clickable-section');
-
-// Add click event listeners to all clickable sections
-clickableSections.forEach(section => {
-  section.addEventListener('click', () => {
-    const serviceType = section.getAttribute('data-service');
-    window.location.href = `service-detail.html?service=${serviceType}`;
-  });
-});
