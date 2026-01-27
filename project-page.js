@@ -100,41 +100,49 @@ window.addEventListener('load', () => {
  * DRONE MODEL MOUSE FOLLOW
  *************************************************/
 const droneModel = document.querySelector('.drone-model');
+const droneContainer = document.querySelector('.project-3d-container');
 
-if (droneModel) {
+if (droneModel && droneContainer) {
   let targetOrbitX = 0;
   let targetOrbitY = 90;
   let currentOrbitX = 0;
   let currentOrbitY = 90;
   let isAnimating = false;
 
-  // Mouse move handler
-  document.addEventListener('mousemove', (e) => {
+  // Make drone follow mouse position
+  window.addEventListener('mousemove', (e) => {
     // Calculate mouse position as percentage (-1 to 1)
     const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
     const mouseY = (e.clientY / window.innerHeight) * 2 - 1;
 
-    // Map to rotation angles (theta: -30 to 30 degrees, phi: 60 to 120 degrees)
-    targetOrbitX = mouseX * 30; // Horizontal rotation
-    targetOrbitY = 90 - mouseY * 20; // Vertical rotation
+    // Map to rotation angles for camera orbit
+    targetOrbitX = mouseX * -50;
+    targetOrbitY = 90 - mouseY * 20;
 
-    // Start animation loop if not already running
+    // Animate drone position to follow mouse with GSAP
+    gsap.to(droneContainer, {
+      duration: 10,
+      x: e.clientX,
+      y: e.clientY,
+      xPercent: -50,
+      yPercent: -50,
+      ease: 'power3.out',
+      overwrite: 'auto'
+    });
+
+    // Start camera rotation animation loop if not already running
     if (!isAnimating) {
       isAnimating = true;
-      animateDrone();
+      animateDroneRotation();
     }
   });
 
-  // Smooth animation loop
-  function animateDrone() {
-    // Smooth interpolation for natural movement
+  // Smooth animation loop for drone rotation
+  function animateDroneRotation() {
     currentOrbitX += (targetOrbitX - currentOrbitX) * 0.1;
     currentOrbitY += (targetOrbitY - currentOrbitY) * 0.1;
-
-    // Update camera-orbit attribute
     droneModel.cameraOrbit = `${currentOrbitX}deg ${currentOrbitY}deg 105%`;
-
-    requestAnimationFrame(animateDrone);
+    requestAnimationFrame(animateDroneRotation);
   }
 }
 
