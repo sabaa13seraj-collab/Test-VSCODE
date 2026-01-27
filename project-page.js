@@ -117,7 +117,7 @@ if (droneModel && droneContainer) {
 
     // Map to rotation angles for camera orbit
     targetOrbitX = mouseX * -50;
-    targetOrbitY = 90 - mouseY * 20;
+    targetOrbitY = 90 - mouseY * 10;
 
     // Animate drone position to follow mouse with GSAP
     gsap.to(droneContainer, {
