@@ -95,3 +95,48 @@ window.addEventListener('load', () => {
     }
   });
 });
+
+/*************************************************
+ * DRONE MODEL MOUSE FOLLOW
+ *************************************************/
+const droneModel = document.querySelector('.drone-model');
+
+if (droneModel) {
+  let targetOrbitX = 0;
+  let targetOrbitY = 90;
+  let currentOrbitX = 0;
+  let currentOrbitY = 90;
+  let isAnimating = false;
+
+  // Mouse move handler
+  document.addEventListener('mousemove', (e) => {
+    // Calculate mouse position as percentage (-1 to 1)
+    const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+    const mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+
+    // Map to rotation angles (theta: -30 to 30 degrees, phi: 60 to 120 degrees)
+    targetOrbitX = mouseX * 30; // Horizontal rotation
+    targetOrbitY = 90 - mouseY * 20; // Vertical rotation
+
+    // Start animation loop if not already running
+    if (!isAnimating) {
+      isAnimating = true;
+      animateDrone();
+    }
+  });
+
+  // Smooth animation loop
+  function animateDrone() {
+    // Smooth interpolation for natural movement
+    currentOrbitX += (targetOrbitX - currentOrbitX) * 0.1;
+    currentOrbitY += (targetOrbitY - currentOrbitY) * 0.1;
+
+    // Update camera-orbit attribute
+    droneModel.cameraOrbit = `${currentOrbitX}deg ${currentOrbitY}deg 105%`;
+
+    requestAnimationFrame(animateDrone);
+  }
+}
+
+
+
