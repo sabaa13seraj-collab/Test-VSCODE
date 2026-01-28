@@ -62,7 +62,7 @@
 .drone-model{
   position:absolute;
   top: 60%;
-  left: 75%;
+  right: 25%;
   width: 30vw;
   height: 100vh;
   transform: translate(-50%, -50%);
