@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Sticky Text Test</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: #000;
+        color: #fff;
+      }
+
+      /* Sticky Hero Section */
+      .sticky-section {
+        position: relative;
+        height: 200vh; /* This controls how long the sticky effect lasts */
+        background: #000;
+      }
+
+      .sticky-wrapper {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .sticky-text {
+        font-size: clamp(3rem, 12vw, 10rem);
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.1;
+      }
+
+      .sticky-text .line1 {
+        display: block;
+        color: #fff;
+      }
+
+      .sticky-text .line2 {
+        display: block;
+        background: linear-gradient(135deg, #e93d59, #ff6b8a, #e93d59);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* 3D Model Container */
+      .robotics-3d-container {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+        width: 50%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      .robotic-model {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-10px); }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Sticky Text Section -->
+    <section class="sticky-section">
+      <div class="sticky-wrapper">
+        <h1 class="sticky-text">
+          <span class="line1">Mobile Robotics</span>
+        </h1>
+        <div class="robotics-3d-container">
+          <model-viewer class="robotic-model" src="MR.glb" alt="" camera-controls camera-orbit="0deg 90deg 105%" interaction-prompt="none"></model-viewer>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  </body>
+</html>

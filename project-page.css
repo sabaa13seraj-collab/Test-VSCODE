@@ -42,22 +42,16 @@
 }
 .drone-title{
   color: #fff;
-  font-size: 15rem;
+  font-size: 20rem;
   font-weight: 700;
 }
 .project-3d-container {
   position: absolute;
   width: 100%;
   height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  left: 0;
-}
-
-.project-3d-container spline-viewer {
-  width: 50vw;
-  height: 100vh;
 }
 .drone-model{
   position:absolute;
@@ -67,14 +61,170 @@
   height: 100vh;
   transform: translate(-50%, -50%);
   z-index: 100;
+  pointer-events: none;
 }
-.project-hero-overlay {
+ .sticky-section {
+        position: relative;
+        height: 200vh; /* This controls how long the sticky effect lasts */
+        background: #000;
+      }
+
+      /* Prevent horizontal overflow on mobile-robotics page */
+      body:has(.sticky-section) {
+        overflow-x: hidden;
+      }
+
+      .sticky-wrapper {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .sticky-text {
+        font-size: clamp(3rem, 12vw, 10rem);
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.1;
+      }
+
+      .sticky-text .line1 {
+        display: block;
+        color: #fff;
+      }
+
+      .sticky-text .line2 {
+        display: block;
+        background: linear-gradient(135deg, #e93d59, #ff6b8a, #e93d59);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* 3D Model Container */
+      .robotics-3d-container {
+        position: absolute;
+        top: 58%;
+        right: 5%;
+        transform: translateY(-50%);
+        width: 50%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .robotic-model {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-10px); }
+      }
+/* Mobile Robotics Hero */
+.robotic-title {
+  color: #fff;
+  font-size: 15rem;
+  font-weight: 700;
+}
+
+.robotic-model {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 60%;
+  right: 25%;
+  width: 30vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Sticky Hero Text Section */
+.sticky-hero-section {
+  position: relative;
+  height: 200vh;
+  background: #000;
+  overflow: hidden;
+}
+
+.sticky-hero-wrapper {
+  position: sticky;
+  top: 0;
   width: 100%;
-  padding: 60px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.sticky-hero-text { 
+  color: #fff;
+  font-size: clamp(3rem, 10vw, 10rem);
+  font-weight: 700;
+  text-align: center;
+  max-width: 90%;
+  line-height: 1.1;
+}
+
+.sticky-hero-text span {
+  display: block;
+}
+
+.sticky-hero-text .highlight {
+  background: linear-gradient(135deg, #e93d59, #ff6b8a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Responsive for sticky hero */
+@media (max-width: 1024px) {
+  .sticky-hero-section {
+    height: 180vh;
+  }
+
+  .sticky-hero-text {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .sticky-hero-section {
+    height: 150vh;
+  }
+
+  .sticky-hero-text {
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .sticky-hero-section {
+    height: 130vh;
+  }
+
+  .sticky-hero-text {
+    font-size: clamp(1.5rem, 12vw, 3rem);
+  }
 }
 
 .project-hero-title {
@@ -113,7 +263,22 @@
 .it-text-right {
   margin-left: 200px;
 }
-
+.robotic-title{
+  color: #fff;
+  font-size: 10rem;
+  font-weight: 700;
+  z-index: 100;
+}
+.robotic-model{
+  position:relative;
+  top: 39%;
+  left: 20%;
+  width: 20vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+}
 /* Cybersecurity Hero */
 .cybersecurity-hero {
   position: relative;
@@ -297,38 +462,47 @@
 /* Hero Section Stacked Layout at 1250px */
 @media (max-width: 1250px) {
   .project-hero {
-    height: auto;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: start;
-  }
-.project-3d-container spline-viewer {
-  width: auto;
+   position: relative;
+  width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  }
+  .drone-model{
+  position:absolute;
+  top: 60%;
+  right: 25%;
+  width: 40vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  pointer-events: none;
 }
-  .project-3d-container {
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    min-height: 400px;
-    order: 2;
+.project-3d-container {
+   position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   }
 
-  .project-hero-overlay {
-    position: relative;
-    order: 1;
-    padding: 120px 5% 40px;
-    background: #000;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  
+
+  .drone-title{
+  color: #fff;
+  font-size: 14rem;
+  font-weight: 700;
+}
+
+  .robotic-title {
+    font-size: 10rem;
   }
 
-  .project-hero-title {
-    opacity: 1;
-    transform: none;
+  .robotic-model {
+    width: 40vw;
   }
 
   /* Cybersecurity Hero Stacked */
@@ -372,6 +546,25 @@
 }
 
 @media (max-width: 1024px) {
+  .drone-model{
+  position:absolute;
+  top: 60%;
+  right: 25%;
+  width: 50vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  pointer-events: none;
+}
+
+  .robotic-title {
+    font-size: 8rem;
+  }
+
+  .robotic-model {
+    width: 50vw;
+  }
+
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -402,10 +595,31 @@
   .project-hero {
     height: 70vh;
   }
+.drone-title{
+  color: #fff;
+  font-size: 7rem;
+  font-weight: 700;
+}
 
-  .project-hero-overlay {
-    padding: 20px;
-  }
+.robotic-title {
+  font-size: 5rem;
+}
+
+.robotic-model {
+  width: 60vw;
+}
+
+.drone-model{
+  position:absolute;
+  top: 60%;
+  right: 25%;
+  width: 50vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  pointer-events: none;
+}
+  
 
   .cybersecurity-hero {
     padding: 80px 0 30px;
@@ -462,8 +676,12 @@
     left: 15px;
   }
 
-  .project-hero-overlay {
-    padding: 15px;
+  .robotic-title {
+    font-size: 3rem;
+  }
+
+  .robotic-model {
+    width: 80vw;
   }
 
   .cybersecurity-hero {

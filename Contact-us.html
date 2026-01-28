@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Contact Us - AL SERAJ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: #000;
+        color: #fff;
+        min-height: 100vh;
+      }
+
+      /* Contact Hero Section */
+      .contact-hero {
+        padding: 150px 5% 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-hero::before {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: #e93d59;
+        filter: blur(150px);
+        opacity: 0.1;
+        top: -100px;
+        right: -100px;
+        pointer-events: none;
+      }
+
+      .contact-title {
+        font-size: clamp(2.5rem, 8vw, 5rem);
+        font-weight: 100;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #fff 0%, #e93d59 50%, #fff 100%);
+        background-size: 200% 200%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 8s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      .contact-subtitle {
+        font-size: clamp(1rem, 2vw, 1.3rem);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Contact Content */
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 5% 100px;
+      }
+
+      /* Contact Info Section */
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .info-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(233, 61, 89, 0.2);
+        border-radius: 20px;
+        transition: all 0.4s ease;
+      }
+
+      .info-card:hover {
+        background: rgba(233, 61, 89, 0.05);
+        border-color: rgba(233, 61, 89, 0.4);
+        transform: translateY(-5px);
+      }
+
+      .info-icon {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(233, 61, 89, 0.1);
+        border: 1px solid rgba(233, 61, 89, 0.3);
+        border-radius: 50%;
+        color: #e93d59;
+        font-size: 1.3rem;
+      }
+
+      .info-details h3 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: #fff;
+      }
+
+      .info-details p,
+      .info-details a {
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+
+      .info-details a:hover {
+        color: #e93d59;
+      }
+
+      /* Map Section */
+      .map-section {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(233, 61, 89, 0.2);
+        height: 100%;
+        min-height: 500px;
+      }
+
+      .map-section iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        border: none;
+        filter: grayscale(80%) invert(92%) contrast(90%);
+      }
+
+      /* Contact Form Section */
+      .contact-form-section {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 80px 5%;
+      }
+
+      .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .form-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 200;
+        margin-bottom: 15px;
+        color: #fff;
+      }
+
+      .form-subtitle {
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 50px;
+      }
+
+      .contact-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .form-group {
+        position: relative;
+      }
+
+      .form-group.full-width {
+        grid-column: 1 / -1;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 18px 25px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: #e93d59;
+        background: rgba(233, 61, 89, 0.05);
+      }
+
+      .submit-btn {
+        grid-column: 1 / -1;
+        padding: 20px 50px;
+        background: #e93d59;
+        border: none;
+        border-radius: 50px;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        margin-top: 20px;
+      }
+
+      .submit-btn:hover {
+        background: #ff4d6d;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(233, 61, 89, 0.4);
+      }
+
+      /* Social Links */
+      .social-section {
+        text-align: center;
+        padding: 80px 5%;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .social-title {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(233, 61, 89, 0.2);
+        border-radius: 50%;
+        color: #fff;
+        font-size: 1.3rem;
+        text-decoration: none;
+        transition: all 0.4s ease;
+      }
+
+      .social-link:hover {
+        background: #e93d59;
+        border-color: #e93d59;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(233, 61, 89, 0.3);
+      }
+
+      /* Back Button */
+      .back-button {
+        position: fixed;
+        top: 100px;
+        left: 40px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 25px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(233, 61, 89, 0.4);
+        border-radius: 30px;
+        color: #e93d59;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 300;
+        transition: all 0.3s ease;
+        z-index: 100;
+      }
+
+      .back-button:hover {
+        background: rgba(233, 61, 89, 0.2);
+        border-color: #e93d59;
+        transform: translateX(-5px);
+      }
+
+      /* Responsive */
+      @media (max-width: 968px) {
+        .contact-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .map-section {
+          min-height: 400px;
+        }
+
+        .contact-form {
+          grid-template-columns: 1fr;
+        }
+
+        .back-button {
+          top: 20px;
+          left: 20px;
+          padding: 12px 20px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .contact-hero {
+          padding: 120px 5% 60px;
+        }
+
+        .info-card {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+        }
+
+        .social-link {
+          width: 50px;
+          height: 50px;
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Back to Home</span>
+    </a>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+      <h1 class="contact-title">Contact Us</h1>
+      <p class="contact-subtitle">We'd love to hear from you. Get in touch with us for any inquiries or support.</p>
+    </section>
+
+    <!-- Contact Content -->
+    <div class="contact-content">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <!-- Phone -->
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div class="info-details">
+            <h3>Phone</h3>
+            <a href="tel:+9647849600500">+964 784 960 0500</a>
+            <a href="tel:+9647811070090">+964 781 107 0090</a>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="info-details">
+            <h3>Email</h3>
+            <a href="mailto:info@alseraj.iq">info@alseraj.iq</a>
+            <a href="mailto:marketing@alseraj.iq">marketing@alseraj.iq</a>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="info-details">
+            <h3>Location</h3>
+            <p>Iraq / Baghdad / Sinaa St.</p>
+            <p>In front of Al Rafidain Bank</p>
+            <a href="https://www.google.com/maps/place/Al+Seraj+Co.+for+Information+Technology+Services+and+Integrated+Solutions/@33.313688,44.439563,17z" target="_blank" style="color: #e93d59; margin-top: 10px;">
+              <i class="fa-solid fa-map"></i> View on Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-section">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3340.7!2d44.439563!3d33.313688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15578110d15d9783%3A0xe564b68da80e0c80!2sAl%20Seraj%20Co.%20for%20Information%20Technology%20Services%20and%20Integrated%20Solutions!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+      <div class="form-container">
+        <h2 class="form-title">Send us a Message</h2>
+        <p class="form-subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Subject">
+          </div>
+          <div class="form-group full-width">
+            <textarea placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Social Links -->
+    <section class="social-section">
+      <h3 class="social-title">Connect with us</h3>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/34934372/admin/feed/posts/" class="social-link" aria-label="LinkedIn" target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://www.youtube.com/@alserajcompany2735" class="social-link" aria-label="YouTube" target="_blank">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="https://www.facebook.com/AlSerajCo" class="social-link" aria-label="Facebook" target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/alseraj.co/" class="social-link" aria-label="Instagram" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@alseraj.almodeeh" class="social-link" aria-label="TikTok" target="_blank">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </section>
+  </body>
+</html>

@@ -91,7 +91,7 @@ window.addEventListener("load", () => {
   const splitTypes = document.querySelectorAll(".big-h1");
 
   splitTypes.forEach((el) => {
-    const split = new SplitType(el, { types: "chars " });
+    const split = new SplitType(el, { types: "chars word" });
 
     gsap.from(split.chars, {
       scrollTrigger: {

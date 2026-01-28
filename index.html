@@ -27,16 +27,16 @@
 
         <!-- Navigation Links (Centered) -->
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-           <li><a href="#">Services</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="Contact-us.html">Contact Us</a></li>
         </ul>
 
         <!-- Connect Button (Desktop) -->
-        <button class="connect-btn desktop">
+        <a href="Cs.html" class="connect-btn desktop">
             Online Store
-        </button>
+        </a>
 
         <!-- Mobile Menu Button -->
         <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
@@ -47,32 +47,27 @@
 
     <!-- Mobile Menu - Apple Style -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#">Home</a>
-        <a href="#">Services</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="Contact-us.html">Contact</a>
         <div class="menu-divider"></div>
-        <button class="connect-btn">
+        <a href="Cs.html" class="connect-btn">
             Online Store
-        </button>
+        </a>
     </div>
     <!-- Hero section -->
-    <section class="main-page">
+    <section id="home" class="main-page">
       <div class="hero-section">
         <div class="hero-text-container"> 
             <h1 class="hero-text"> Technology.Security.Reliability </h1>
             <p class="hero-p">Delivering Technology and Security with Reliable Performance</p>
-        </div>
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer@1.12.36/build/spline-viewer.js"
-        ></script>
-        <spline-viewer
-          url="https://prod.spline.design/wXH9s-mz1tsC47-J/scene.splinecode"
-        ></spline-viewer>
+        </div >
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.39/build/spline-viewer.js"></script>
+          <spline-viewer url="https://prod.spline.design/wXH9s-mz1tsC47-J/scene.splinecode"></spline-viewer>
       </div>
       <!-- About us section -->
-      <div class="about-us-section">
+      <div id="about" class="about-us-section">
         <div class="circle-container">
           <div class="circle"></div>
           <h1 class="h11">who we are</h1>
@@ -172,7 +167,7 @@
       </section>
     
       <!-- Services Section -->
-      <section class="services-section">
+      <section id="services" class="services-section">
         <div class="services-container">
           <div class="services-header">
             <div class="circle-container">
@@ -306,63 +301,59 @@
           </div>
         </div>
       </section>
+ 
+
 
       <!-- Footer -->
       <footer class="footer">
         <div class="footer-container">
           <div class="footer-top">
             <div class="footer-brand">
-              <h2 ><img class="footer-logo" src="Images/logo.png" alt="Al Seraj Company Logo"></h2>
+              <h2><a href="index.html"><img class="footer-logo" src="Images/logo.png" alt="Al Seraj Company Logo"></a></h2>
               <p class="footer-tagline">Powering digital transformation since 1996</p>
+                <div class="footer-column">
+                <div class="footer-social">
+                  <a href="https://www.linkedin.com/company/34934372/admin/feed/posts/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://www.youtube.com/@alserajcompany2735" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="https://www.facebook.com/Alseraj.almodeeh/" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/alseraj.co/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@alseraj.almodeeh?_t=8ocPGrrxWwk&_r=1" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+              </div>
             </div>
 
             <div class="footer-links">
               <div class="footer-column">
-                <h3>Services</h3>
+                <h3>Shop and Learn</h3>
                 <ul>
-                  <li><a href="#">Cybersecurity</a></li>
-                  <li><a href="#">Control Room</a></li>
-                  <li><a href="#">Surveillance</a></li>
-                  <li><a href="#">Fence Detection</a></li>
+                  <li><a href="drone.html">Drone</a></li>
+                  <li><a href="camera.html">Camera</a></li>
+                  <li><a href="it.html">IT</a></li>
+                  <li><a href="mobile-robotics.html">Mobile-Robotics</a></li>
+                  <li><a href="cyber-security.html">Cyber Security</a></li>
                 </ul>
               </div>
 
-              <div class="footer-column">
-                <h3>Solutions</h3>
-                <ul>
-                  <li><a href="#">Design</a></li>
-                  <li><a href="#">Development</a></li>
-                  <li><a href="#">Marketing</a></li>
-                  <li><a href="#">Consulting</a></li>
-                </ul>
-              </div>
 
               <div class="footer-column">
                 <h3>Company</h3>
                 <ul>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="Cs.html">About Us</a></li>
+                  <li><a href="Cs.html">Contact</a></li>
+                  <li><a href="Cs.html">Careers</a></li>
+                  <li><a href="Cs.html">Privacy Policy</a></li>
+                  <li><a href="Cs.html">Terms of Service</a></li>
                 </ul>
               </div>
 
-              <div class="footer-column">
-                <h3>Connect</h3>
-                <div class="footer-social">
-                  <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                  <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                  <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                  <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-              </div>
+            
             </div>
           </div>
 
           <div class="footer-divider"></div>
 
           <div class="footer-bottom">
-            <p>&copy; 2026 AL SERAJ. All rights reserved.</p>
+            <p>&copy; 2026 AL SERAJ Company. All rights reserved.</p>
           </div>
         </div>
       </footer>

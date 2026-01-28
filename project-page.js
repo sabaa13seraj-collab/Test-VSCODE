@@ -147,4 +147,31 @@ if (droneModel && droneContainer) {
 }
 
 
+/*************************************************
+ * Mobile Robotics Model Scroll Animation
+ *************************************************/
+const roboticsContainer = document.querySelector('.robotics-3d-container');
+const stickySection = document.querySelector('.sticky-section');
 
+if (roboticsContainer && stickySection) {
+  // Move model 500px to the right on scroll
+  gsap.to('.robotics-3d-container', {
+    x: 500,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.sticky-section',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+      markers: false,
+      onLeave: () => {
+        // Hide the model when leaving the sticky section
+        gsap.to('.robotics-3d-container', { opacity: 0, duration: 0.3 });
+      },
+      onEnterBack: () => {
+        // Show the model when scrolling back
+        gsap.to('.robotics-3d-container', { opacity: 1, duration: 0.3 });
+      }
+    }
+  });
+}
