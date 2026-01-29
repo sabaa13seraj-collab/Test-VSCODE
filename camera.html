@@ -64,21 +64,13 @@
       <span>Back to Home</span>
     </a>
 
-    <!-- Hero Section with 3D Model -->
+    <!-- Hero Section  -->
     <section class="project-hero">
+      <h1 class="camera-title">Camera</h1>
       <div class="project-3d-container">
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer@1.12.36/build/spline-viewer.js"
-        ></script>
-        <spline-viewer
-          url="https://prod.spline.design/aSa635o165tD7Scs/scene.splinecode"
-        ></spline-viewer>
+          <model-viewer class="camera-model" src="camera.glb" alt="" autoplay camera-controls camera-orbit="90deg 60deg 80deg 105%" interaction-prompt="none"></model-viewer>
       </div>
-      <div class="project-hero-overlay">
-        <h1 class="project-hero-title">Surveillance Cameras</h1>
-      </div>
-    </section>
+        </section>
 
     <!-- Service Details Section -->
     <section class="project-details">
@@ -214,5 +206,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="./project-page.js"></script>
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
   </body>
 </html>

@@ -40,11 +40,27 @@
   align-items: center;
   overflow: hidden;
 }
+.camera-title{
+  color: #fff;
+  font-size: 20rem;
+  font-weight: 700;
+}
+.camera-model{
+  position:fixed;
+  top: 13%;
+  right:-15.7%;
+  width: 20vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+}
 .drone-title{
   color: #fff;
   font-size: 20rem;
   font-weight: 700;
 }
+
 .project-3d-container {
   position: absolute;
   width: 100%;
@@ -464,6 +480,14 @@
 
 /* Responsive */
 @media (max-width: 1920px) { 
+  .project-3d-container {
+   position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
 .sticky-text {
         font-size: clamp(3rem, 12vw,12rem);
         font-weight: 700;
@@ -483,6 +507,15 @@
         z-index: -1;
         pointer-events: none;
       }
+  .it-title{
+    width: 100%;
+    text-align: center;
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  font-size: 8rem;
+  font-weight: 700;
+}
     }
    @media (max-width: 1536px) { 
 .sticky-text {
@@ -504,6 +537,16 @@
         z-index: -1;
         pointer-events: none;
       }
+.it-title{
+  position: relative;
+  width: 100%;
+    text-align: center;
+  z-index: 10;
+  color: #fff;
+  font-size: 8rem;
+  font-weight: 700;
+}
+
     } 
 /* Hero Section Stacked Layout at 1250px */
 @media (max-width: 1250px) {
@@ -534,8 +577,32 @@
   justify-content: center;
   align-items: center;
   }
+.it-title{
+  position: relative;
+  width: 100%;
+    text-align: center;
+  z-index: 10;
+  color: #fff;
+  font-size: 8rem;
+  font-weight: 700;
+}
 
-  
+  .camera-title{
+  position: absolute;
+  color: #fff;
+  font-size: 20rem;
+  font-weight: 700;
+}
+.camera-model{
+  position:fixed;
+  top: 13%;
+  right:-15.7%;
+  width: 20vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+}
 
   .drone-title{
   color: #fff;
@@ -607,6 +674,30 @@
   z-index: 100;
   pointer-events: none;
 }
+.it-title{
+  position: relative;
+  width: 100%;
+    text-align: center;
+  z-index: 10;
+  color: #fff;
+  font-size: 5rem;
+  font-weight: 700;
+}
+.camera-title{
+  color: #fff;
+  font-size: 12rem;
+  font-weight: 700;
+}
+.camera-model{
+  position:fixed;
+  top: 10%;
+  right:-23.5%;
+  width: 30vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+}
   .sticky-text {
         font-size: clamp(3rem, 12vw,5rem);
         font-weight: 700;
@@ -674,7 +765,26 @@
   font-size: 7rem;
   font-weight: 700;
 }
-
+.project-specs{
+  color: #fff;
+  font-size: 20rem;
+  font-weight: 700;
+}
+.camera-title{
+  color: #fff;
+  font-size: 8rem;
+  font-weight: 700;
+}
+.camera-model{
+  position:fixed;
+  top: 10%;
+  right:-23.5%;
+  width: 30vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+}
 .robotic-title {
   font-size: 5rem;
 }
@@ -768,7 +878,30 @@
     padding: 10px 16px;
     left: 15px;
   }
-
+  .it-title{
+    width: 100%;
+    text-align: center;
+  position: relative;
+  z-index: 10;
+  color: hsl(0, 0%, 100%);
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+.camera-title{
+  color: #fff;
+  font-size: 5.5rem;
+  font-weight: 700;
+}
+.camera-model{
+  position:fixed;
+  top: 15%;
+  right:-35.5%;
+  width: 45vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  pointer-events: none;
+}
   .robotic-title {
     font-size: 3rem;
   }
