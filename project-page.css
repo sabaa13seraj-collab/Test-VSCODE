@@ -258,32 +258,11 @@
 }
 
 /* IT Page Overlay Text */
-.it-overlay-text {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  z-index: 1;
+.it-video{
+  width: 20%;
+  height: auto;
 }
 
-.it-overlay-text h1 {
-  font-size: clamp(1.8rem, 8vw, 5rem);
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  color: #fff;
-  opacity: 0.9;
-}
-
-.it-text-left {
-  margin-right: 200px;
-}
-
-.it-text-right {
-  margin-left: 200px;
-}
 .robotic-title{
   color: #fff;
   font-size: 10rem;
@@ -516,6 +495,46 @@
   font-size: 8rem;
   font-weight: 700;
 }
+.it-video{
+  padding-right: 13%;
+  position: relative;
+  width: 85%;
+  height: auto;
+}
+.cs-container{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cyber-title{
+  position: absolute;
+  width: 100%;
+  font-size: clamp(2rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+}
+.overlay{
+  position: absolute;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 15%, rgb(0, 0, 0) 60%);
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+}
+.cs-video{
+  position: relative;
+  width: 70%;
+  z-index: 2;
+  height: auto;
+}
     }
    @media (max-width: 1536px) { 
 .sticky-text {
@@ -537,16 +556,55 @@
         z-index: -1;
         pointer-events: none;
       }
+      .it-video{
+        position: relative;
+  padding-right: 9%;
+  width: 100%;
+  height: auto;
+}
 .it-title{
   position: relative;
   width: 100%;
     text-align: center;
   z-index: 10;
   color: #fff;
-  font-size: 8rem;
+  font-size: 7rem;
   font-weight: 700;
 }
-
+.cs-container{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cyber-title{
+  position: absolute;
+  width: 100%;
+  font-size: clamp(2rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+}
+.overlay{
+  position: absolute;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 15%, rgb(0, 0, 0) 60%);
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+}
+.cs-video{
+  position: relative;
+  width: 110%;
+  z-index: 2;
+  height: auto;
+}
     } 
 /* Hero Section Stacked Layout at 1250px */
 @media (max-width: 1250px) {
@@ -624,6 +682,40 @@
         line-height: 1.1;
       }
   /* Cybersecurity Hero Stacked */
+  .cs-container{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cyber-title{
+  position: absolute;
+  width: 100%;
+  font-size: clamp(2rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+}
+.overlay{
+  position: absolute;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 15%, rgb(0, 0, 0) 60%);
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+}
+.cs-video{
+  position: relative;
+  width: 70%;
+  z-index: 2;
+  height: auto;
+}
   .cybersecurity-hero {
     flex-direction: column;
     justify-content: center;
@@ -673,6 +765,12 @@
   transform: translate(-50%, -50%);
   z-index: 100;
   pointer-events: none;
+}
+  .it-video{
+  padding-right: 10%;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 .it-title{
   position: relative;
@@ -745,6 +843,40 @@
   .it-text-right {
     margin-left: 100px;
   }
+  .cs-container{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cyber-title{
+  position: absolute;
+  width: 100%;
+  font-size: clamp(2rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+}
+.overlay{
+  position: absolute;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 15%, rgb(0, 0, 0) 43%);
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+}
+.cs-video{
+  position: relative;
+  width: 120%;
+  z-index: 2;
+  height: auto;
+}
 }
 
 @media (max-width: 760px) {
@@ -756,7 +888,20 @@
     width: fit-content;
     padding: 12px 20px;
   }
-
+.it-video{
+  position: relative;
+  width: 120%;
+  height: auto;
+}
+.it-title{
+  position: relative;
+  width: 100%;
+    text-align: center;
+  z-index: 10;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 700;
+}
   .project-hero {
     height: 70vh;
   }
@@ -823,7 +968,40 @@
   pointer-events: none;
 }
   
-
+.cs-container{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cyber-title{
+  position: absolute;
+  width: 100%;
+  font-size: clamp(2rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+}
+.overlay{
+  position: absolute;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 15%, rgb(0, 0, 0) 60%);
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+}
+.cs-video{
+  position: relative;
+  width: 70%;
+  z-index: 2;
+  height: auto;
+}
   .cybersecurity-hero {
     padding: 80px 0 30px;
   }
@@ -861,30 +1039,25 @@
   .spec-card {
     padding: 20px 15px;
   }
-
-  .it-overlay-text {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .it-text-left,
-  .it-text-right {
-    margin: 0;
-  }
 }
-
+  
 @media (max-width: 480px) {
   .back-button {
     padding: 10px 16px;
     left: 15px;
   }
-  .it-title{
-    width: 100%;
-    text-align: center;
+  .it-video{
   position: relative;
+  width: 120%;
+  height: auto;
+}
+.it-title{
+  position: relative;
+  width: 100%;
+    text-align: center;
   z-index: 10;
-  color: hsl(0, 0%, 100%);
-  font-size: 3.5rem;
+  color: #fff;
+  font-size: 2rem;
   font-weight: 700;
 }
 .camera-title{
@@ -928,19 +1101,51 @@
         z-index: -1;
         pointer-events: none;
       }
-    
-  .cybersecurity-hero {
-    padding: 60px 0;
-  }
-
-  .cyber-title {
-    font-size: clamp(1.5rem, 10vw, 3rem);
-    margin-bottom: 10px;
-  }
-
-  .cyber-spline {
-    height: 50vh;
-    min-height: 220px;
-    scale: 0.6;
-  }
+    .cs-container{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cyber-title{
+  position: absolute;
+  width: 100%;
+  font-size: clamp(2rem, 10vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.overlay{
+  position: absolute;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 15%, rgb(0, 0, 0) 35%);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.cs-video{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  z-index: 2;
+  height: auto;
+}
 }
