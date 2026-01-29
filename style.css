@@ -281,7 +281,7 @@ body.menu-open {
 }
 
 /* Responsive */
-@media (max-width: 700px) {
+@media (max-width: 870px) {
     .navbar {
         padding: 14px 20px;
     }
