@@ -340,21 +340,21 @@ body.menu-open {
   text-align: center;
   z-index: 2;
   width: 90%;
-  max-width: 900px;
 }
 .hero-text{
+  width: 100%;
   color:darkgrey;
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 6rem);
   letter-spacing: clamp(-1px, -0.5vw, -2px);
-  font-weight: 100;
+  font-weight: 300;
    background: linear-gradient(45deg, #6c99fa, #fff, #ee4399);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .hero-p{
   color:#7A7497;
-  font-size: clamp(0.9rem, 2.5vw, 1.4rem);
-  font-weight: 200;
+  font-size: clamp(0.9rem, 2.5vw, 2rem);
+  font-weight: 300;
 }
 
 /* Hero Section Stacked Layout at 1250px */
